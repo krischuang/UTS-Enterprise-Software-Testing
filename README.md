@@ -1,4 +1,4 @@
-# Enterprise Software Testing Course
+# Enterprise Software Testing
 
 This project is part of the **Enterprise Software Testing Course**, focused on **automated UI testing** using **Python and Selenium WebDriver**.  
 The goal is to test major e-commerce functionalities (comment, comparison, and wishlist) on [LambdaTest’s E-commerce Playground](https://ecommerce-playground.lambdatest.io/).
@@ -50,8 +50,6 @@ Validates that users can successfully submit a review for a product.
 **Expected Output:**  
 `Test passed: Comment submitted successfully.`
 
----
-
 ### 2. `test_comparison.py` — Product Comparison Test
 
 **Purpose:**  
@@ -68,8 +66,6 @@ Ensures that the **product comparison** feature works correctly and data matches
 
 **Expected Output:**  
 `Test passed: Comparison function works successfully.`
-
----
 
 ### 3. `test_wishlist.py` — Wishlist Functionality Test
 
@@ -108,8 +104,6 @@ python test_wishlist.py
 - Data extraction uses **pandas.read_html()** for HTML table parsing.
 - All scripts use the **CSS selectors** and **ActionChains** for reliable interaction.
 
----
-
 ## Learning Objectives
 
 Through this project, learners will:
@@ -123,4 +117,4 @@ Through this project, learners will:
 
 This repository was created for educational purposes in the **Enterprise Software Testing Course**.  
 Developed by: _Kai-Hsiang Chuang_  
-Date: _October 2025_
+Date: _25 October 2025_
