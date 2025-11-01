@@ -38,6 +38,7 @@ def go_to_homepage(driver):
 def choose_first_three_product(driver):
     choose_product_dict = {}
     driver.get("https://ecommerce-playground.lambdatest.io/index.php?route=product/category&path=20")
+    time.sleep(5)
     for i in range(3):
         product_name, product_price = choose_num_product(driver, i)
         choose_product_dict[f"Product{i+1}"] = {
