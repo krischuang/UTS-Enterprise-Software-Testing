@@ -11,7 +11,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 # Function to wait for system
 def wait_system():
-    time.sleep(2)
+    time.sleep(3)
 
 # Choose product functions
 def choose_num_product(driver, num):
@@ -42,14 +42,32 @@ def go_to_homepage(driver):
 def login_account(driver, email, password):
     driver.get("https://ecommerce-playground.lambdatest.io/index.php?route=account/login")
     driver.find_element(By.CSS_SELECTOR, "input[name='email']").send_keys(email)
+    time.sleep(1)
     driver.find_element(By.CSS_SELECTOR, "input[name='password']").send_keys(password)
+    time.sleep(1)
     driver.find_element(By.CSS_SELECTOR, "input[value='Login']").click()
     wait_system()
 
-# Step 4. Choose first three product and click wishlist button
+# Step 4. Check wishlist if exists, delete the item
+def check_wishlist(driver):
+    driver.get("https://ecommerce-playground.lambdatest.io/index.php?route=account/wishlist")
+    time.sleep(3)
+    items = driver.find_elements(By.CSS_SELECTOR, "table[class='table table-hover border']")
+    check_url = []
+    for item in items:
+        links = item.find_elements(By.TAG_NAME, "a")
+        for link in links:
+            if "remove" in link.get_attribute("href"):
+                check_url.append(link.get_attribute("href"))
+    for i in check_url:
+        driver.get(i)
+        wait_system()
+
+# Step 5. Choose first three product and click wishlist button
 def choose_first_three_product(driver):
     choose_product_dict = {}
     driver.get("https://ecommerce-playground.lambdatest.io/index.php?route=product/category&path=20")
+    time.sleep(5)
     for i in range(3):
         product_name, product_price = choose_num_product(driver, i)
         choose_product_dict[f"Product{i+1}"] = {
@@ -60,17 +78,17 @@ def choose_first_three_product(driver):
         time.sleep(2)
     return choose_product_dict
 
-# Step 5. Naviagte to wishlist page
+# Step 6. Naviagte to wishlist page
 def nav_wishlist(driver):
     driver.get("https://ecommerce-playground.lambdatest.io/index.php?route=account/wishlist")
 
-# Step 6. Use pandas to capture wishlist table
+# Step 7. Use pandas to capture wishlist table
 def get_table_info(driver):
     html = driver.page_source
     tables = pd.read_html(StringIO(html))
     return tables[1]
 
-# Step 7. Capture need information from table
+# Step 8. Capture need information from table
 def get_table_information(w_table):
     wish_dict = {}
     for i in range(w_table.shape[0]):
@@ -82,15 +100,15 @@ def get_table_information(w_table):
         }
     return wish_dict
 
-# Step 8. Run the test
+# Step 9. Run the test
 def run_test(choose_dict, comp_dict):
     if choose_dict == comp_dict:
-        print("Test passed: Comparison function works successfully.")
+        print("Test passed: Wishlist function works successfully.")
     else:
-        print("Test failed: Comparison function works unsuccessful.")
+        print("Test failed: Wishlist function works unsuccessful.")
 
 
-# Step 8. Quit the browser
+# Step 10. Quit the browser
 def close_browser(driver):
     driver.quit()
 
@@ -101,6 +119,8 @@ if __name__ == "__main__":
         go_to_homepage(driver)
         wait_system()
         login_account(driver, "testtesttest123@gmail.com", "test123")
+        wait_system()
+        check_wishlist(driver)
         wait_system()
         choose_dict = choose_first_three_product(driver)
         wait_system()

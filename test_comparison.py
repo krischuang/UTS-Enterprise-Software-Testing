@@ -10,7 +10,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 # Function to wait for system
 def wait_system():
-    time.sleep(2)
+    time.sleep(3)
 
 # Choose product functions
 def choose_num_product(driver, num):

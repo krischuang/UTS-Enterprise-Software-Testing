@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 # function to wait for system
 def wait_system():
-    time.sleep(2)
+    time.sleep(3)
 
 # Step 1. Open Chrome Browser
 def open_browser():
@@ -22,6 +22,7 @@ def go_to_homepage(driver):
 # Step 3. Choose first product and go to its page
 def choose_first_product(driver):
     driver.get("https://ecommerce-playground.lambdatest.io/index.php?route=product/category&path=20")
+    time.sleep(5)
     first_product = driver.find_elements(By.CSS_SELECTOR, ".product-thumb")[0] # First product
     first_product.click()
 
