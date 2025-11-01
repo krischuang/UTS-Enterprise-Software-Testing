@@ -3,7 +3,7 @@
 This project was created for the **Enterprise Software Testing** course.  
 It focuses on **automated UI testing** using **Python** and **Selenium WebDriver**.
 
-We tested basic **e-commerce features** — like adding comments, comparing products, and managing a wishlist — on [LambdaTest’s E-commerce Playground](https://ecommerce-playground.lambdatest.io/).
+We tested basic **e-commerce features** like adding comments, comparing products, and managing a wishlist on [LambdaTest’s E-commerce Playground](https://ecommerce-playground.lambdatest.io/).
 
 ## Project Files
 
@@ -37,7 +37,7 @@ pip install selenium pandas lxml
 Each test file automates one main feature of the e-commerce site.  
 They use Selenium to open Chrome, find web elements, and check if everything works as expected.
 
-### 1. `test_comment.py` — Product Review Test
+### 1. `test_comment.py`: Product Review Test
 
 **What it does:**  
 Checks if users can leave a review on a product.
@@ -54,7 +54,7 @@ Checks if users can leave a review on a product.
 **Expected result:**  
 `Test passed: Comment submitted successfully.`
 
-### 2. `test_comparison.py` — Product Comparison Test
+### 2. `test_comparison.py`: Product Comparison Test
 
 **What it does:**  
 Tests whether the product comparison page works correctly.
@@ -70,7 +70,7 @@ Tests whether the product comparison page works correctly.
 **Expected result:**  
 `Test passed: Comparison function works successfully.`
 
-### 3. `test_wishlist.py` — Wishlist Test
+### 3. `test_wishlist.py`: Wishlist Test
 
 **What it does:**  
 Checks if a logged-in user can add products to their wishlist.
