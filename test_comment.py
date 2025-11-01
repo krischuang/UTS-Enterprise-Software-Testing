@@ -56,7 +56,7 @@ def close_browser(driver):
 
 if __name__ == "__main__":
     try:
-        driver = webdriver.Chrome()
+        driver = open_browser()
         wait_system()
         go_to_homepage(driver)
         wait_system()
