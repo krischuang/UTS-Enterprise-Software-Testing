@@ -92,7 +92,8 @@ Checks if a logged-in user can add products to their wishlist.
 
 You can run each test one by one like this:
 
-```bash
+```bash in windows
+venv\Scripts\activate
 python test_comment.py
 python test_comparison.py
 python test_wishlist.py
